@@ -1,0 +1,181 @@
+?*
+Q------------------------------------------------------------------------------------------
+
+Problem
+On his birthday, Almas was given a nXn (1<=n<=500) matrix of natural numbers up to 500 and instructions for it. The instruction consisted of symbols L and R, where if the symbol L is given you need to rotate the matrix 90 degrees to the left, and for the symbol R you need to rotate the matrix 90 degrees to the right. The instruction was only  characters in length so Almas could handle the twists with ease. Your task is to display the matrix that Almas had at the end of these turns.
+
+Input
+
+The first line consists of one integer n - the size of the matrix.
+
+In the next n lines, you are given n integers. Numbers can range from 1 to 500.
+
+Output
+
+Output the final matrix nXn.
+
+Note
+
+Important note - you should not print any whitespace or newline if it is not necessary.
+
+Sample Input
+2
+1 2
+3 4
+RLR
+Sample Output
+3 1
+4 2
+
+A-----------------------------------------------------------------------------------------
+
+*/
+
+/* IMPORTANT: Multiple classes and nested static classes are supported */
+
+/*
+ * uncomment this if you want to read input.
+imports for BufferedReader
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+*/
+//import for Scanner and other utility classes
+import java.util.*;
+
+
+// Warning: Printing unwanted or ill-formatted data to output will cause the test cases to fail
+
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        /* Sample code to perform I/O:
+         * Use either of these methods for input
+
+        //BufferedReader
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String name = br.readLine();                // Reading input from STDIN
+        System.out.println("Hi, " + name + ".");    // Writing output to STDOUT
+        */
+        //Scanner
+        Scanner s = new Scanner(System.in);
+        //String name = s.nextLine();                 // Reading input from STDIN
+        //System.out.println("Hi, " + name + ".");    // Writing output to STDOUT
+
+        
+
+        // Write your code here
+        int n = s.nextInt();
+        int[][] arr = new int[n][n];
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                arr[i][j] = s.nextInt();
+            }
+        }
+        int L=0;
+        int R=0;
+        s.nextLine();
+        
+        String cmd = s.nextLine();
+        //System.out.println(cmd);
+        for(int i=0; i< cmd.length(); i++){
+            if(cmd.charAt(i) == 'L'){
+                L++;
+            }
+            else{
+                R++;
+            }
+        }
+        //System.out.println("R="+R);
+        //System.out.println("L="+L);
+        int offset=0;
+
+        if(L > R){
+            offset = (L-R)%4;
+            if(offset == 0){
+                //System.out.println("L0");
+                for(int i=0; i<n; i++){
+                    for(int j=0; j<n; j++){
+                        System.out.print(arr[i][j]+" ");
+                    }
+                    System.out.println();
+                }
+            }
+            else if(offset == 3){
+                //System.out.println("L3");
+                for(int i=0; i<n; i++){
+                    for(int j=n-1; j>=0; j--){
+                        System.out.print(arr[j][i]+" ");
+                    }
+                    System.out.println();
+                }
+            }
+            else if(offset == 2){
+                //System.out.println("L2");
+                for(int i=n-1; i>=0; i--){
+                    for(int j=n-1; j>=0; j--){
+                        System.out.print(arr[i][j]+" ");
+                    }
+                    System.out.println();
+                }
+            }
+            else if(offset == 1){
+                //System.out.println("L1");
+                for(int i=n-1; i>=0; i--){
+                    for(int j=0; j<n; j++){
+                        System.out.print(arr[j][i]+" ");
+                    }
+                    System.out.println();
+                }
+            }
+        }
+
+        else if(R > L){
+            offset = (R-L)%4;
+            if(offset == 0){
+                //System.out.println("R0");
+                for(int i=0; i<n; i++){
+                    for(int j=0; j<n; j++){
+                        System.out.print(arr[i][j]+" ");
+                    }
+                    System.out.println();
+                }
+            }
+            else if(offset == 1){
+                //System.out.println("R1");
+                for(int i=0; i<n; i++){
+                    for(int j=n-1; j>=0; j--){
+                        System.out.print(arr[j][i]+" ");
+                    }
+                    System.out.println();
+                }
+            }
+            else if(offset == 2){
+                //System.out.println("R2");
+                for(int i=n-1; i>=0; i--){
+                    for(int j=n-1; j>=0; j--){
+                        System.out.print(arr[i][j]+" ");
+                    }
+                    System.out.println();
+                }
+            }
+            else if(offset == 3){
+                //System.out.println("R3");
+                for(int i=n-1; i>=0; i--){
+                    for(int j=0; j<n; j++){
+                        System.out.print(arr[j][i]+" ");
+                    }
+                    System.out.println();
+                }
+            }
+        }
+
+        else{
+            //System.out.println("RL0");
+            for(int i=0; i<n; i++){
+                for(int j=0; j<n; j++){
+                    System.out.print(arr[i][j]+" ");
+                }
+                System.out.println();
+            }
+        }
+    }
+}
