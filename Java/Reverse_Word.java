@@ -1,9 +1,9 @@
 import java.util.*;
 import java.lang.*;
 
-public class HelloWorld{
+public class Reverse_Word {
 
-     public static void main(String []args){
+     public static void main(String []args) {
         System.out.println("Hello World");
         Scanner kb = new Scanner(System.in);
         String word = kb.nextLine();
