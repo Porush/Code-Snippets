@@ -1,8 +1,8 @@
 import java.util.*;
 
-public class Hello{
+public class Pallendrom_Number {
 
-     public static void main(String []args){
+     public static void main(String []args) {
          
         Scanner kb = new Scanner(System.in);
         System.out.println("***Pallendrom Number***\nEnter an integer number: ");

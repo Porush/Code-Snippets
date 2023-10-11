@@ -1,11 +1,11 @@
 import java.util.*;
 
-public class Digital_Time{
+public class Digital_Time {
 
-     public static void main(String []args){
+     public static void main(String []args) {
 
        Scanner kb = new Scanner(System.in);
-       int H = -1, M = -1, S = -1, temp = -1;
+       int H = -1, M = -1, S = -1, temp;
        int arr[][] = new int[3][9];
        String line;
        String[] lineArr;
